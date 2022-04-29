@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ArraysAndLists
 {
@@ -6,27 +7,56 @@ namespace ArraysAndLists
     {
         static void Main(string[] args)
         {
-            //TODO:
 
-            // Create an int Array and populate numbers 1-10
+            var myArray = new Array[11];
+            for (int i = 1; i < 11; i++)
+            {
+                Console.WriteLine((int)i);
+            }
 
-            /* Create two Lists of type int.
-             * Name one List "evens"
-             * Name the other List "odds"
-             */
+            Console.WriteLine("\n ");
 
-            /* Using either a foreach or for loop,
-             * nest an if statement to check to see
-             *  if a number is even or odd.
-             * Then add those numbers to either the evens List
-             * or the odds List
-             */
 
-            /* Now using foeach or for loops,
-             * display each List of even and odd numbers
-             *
-             * Try to be creative in your display
-             */
+            Console.WriteLine($"Please enter a number: ");
+            var number = int.Parse(Console.ReadLine());
+            Console.WriteLine(" ");
+           
+            var evens = new List<int>();
+            var odds = new List<int>();
+
+            for (int i = 1; i <= number; ++i)
+            {
+                if (number % 2 == 0)
+                {
+                    i += 1;
+                    Console.WriteLine("Even: ");
+                    Console.WriteLine(i);
+                    evens.Add(i);
+                }
+                else
+                {
+                    Console.WriteLine("Odd: ");
+                    Console.WriteLine(i);
+                    i += 1;
+                    odds.Add(i);
+                }
+            }
+
+            Console.WriteLine(" ");
+            if (number % 2 == 0)
+            {
+                Console.WriteLine($"These are all the even numbers of {number}");
+                evens.ForEach(Console.WriteLine);
+            }
+
+            if (number % 2 != 0)
+            {
+                Console.WriteLine($"These are all the even numbers of {number}");
+            }
+            foreach (var odd in odds)
+            {
+                Console.WriteLine($"{odd - 1}");
+            }
         }
     }
 }
